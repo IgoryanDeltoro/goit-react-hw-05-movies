@@ -79,7 +79,9 @@ const MovieDetails = () => {
         </table>
       </div>
       <div>
-        {pending && <img src={IMAGE_ENDPOINT + details.poster_path} alt="" />}
+        {pending && (
+          <img src={IMAGE_ENDPOINT + details.poster_path} alt="poster_image" />
+        )}
       </div>
       <div>
         <Link to="cast">Cast</Link>
