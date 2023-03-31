@@ -1,9 +1,10 @@
 import axios from 'axios';
 import { useEffect, useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 
 const Home = () => {
   const [movies, setMovies] = useState([]);
+  const Location = useLocation();
   useEffect(() => {
     axiosRequest();
   }, []);
@@ -24,7 +25,9 @@ const Home = () => {
     <ul>
       {movies.map(({ id, title }) => (
         <li key={id}>
-          <Link to={`movies/${id}`}>{title}</Link>
+          <Link state={{ from: Location }} to={`movies/${id}`}>
+            {title}
+          </Link>
         </li>
       ))}
     </ul>

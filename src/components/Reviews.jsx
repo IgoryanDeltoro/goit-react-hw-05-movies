@@ -22,7 +22,7 @@ const Reviews = () => {
       console.error(error);
     }
   };
-  console.log(reviews.length !== 0);
+
   return (
     <div>
       {reviews.length !== 0 ? (

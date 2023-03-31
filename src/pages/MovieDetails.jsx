@@ -1,6 +1,6 @@
 import axios from 'axios';
-import { useEffect, useState } from 'react';
-import { Link, Outlet, useParams } from 'react-router-dom';
+import { Suspense, useEffect, useRef, useState } from 'react';
+import { Link, Outlet, useLocation, useParams } from 'react-router-dom';
 
 const IMAGE_ENDPOINT = 'https://image.tmdb.org/t/p/w500';
 
@@ -8,7 +8,10 @@ const MovieDetails = () => {
   const { movieId } = useParams();
   const [pending, setPending] = useState(false);
   const [details, setDetails] = useState({});
-
+  const location = useLocation();
+  const backLinkRef = useRef(location.state?.from ?? '/movies');
+  console.log(location);
+  console.log(backLinkRef);
   useEffect(() => {
     axiosRequest();
     // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -29,6 +32,7 @@ const MovieDetails = () => {
   };
   return (
     <div>
+      <Link to={backLinkRef.current}>Back</Link>
       <div>
         <h1>{details.original_title}</h1>
         <table>
@@ -87,7 +91,9 @@ const MovieDetails = () => {
         <Link to="cast">Cast</Link>
         <Link to="reviews">Reviews</Link>
       </div>
-      <Outlet />
+      <Suspense fallback={<div>Loading subpage...</div>}>
+        <Outlet />
+      </Suspense>
     </div>
   );
 };
