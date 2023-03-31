@@ -26,6 +26,7 @@ export const HeaderBox = styled.div`
   justify-content: space-between;
   align-items: center;
   height: 64px;
+  max-width: 1200px;
   margin: 0 auto;
   padding: 0 16px;
   > nav {
@@ -47,7 +48,7 @@ export const Link = styled(NavLink)`
   padding: 8px 16px;
   border-radius: 4px;
   text-decoration: none;
-  color: black;
+  color: #88cda5;
   font-weight: 500;
 
   &.active {

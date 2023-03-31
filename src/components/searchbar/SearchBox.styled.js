@@ -2,11 +2,18 @@ import styled from 'styled-components';
 import { HiSearch } from 'react-icons/hi';
 
 export const Wrapper = styled.div`
+  width: 100%;
   display: inline-flex;
   align-items: center;
   position: relative;
   margin-bottom: 16px;
   text-transform: uppercase;
+`;
+
+export const Form = styled.form`
+  width: 100%;
+  display: flex;
+  justify-content: center;
 `;
 
 export const Input = styled.input`
@@ -23,13 +30,13 @@ export const Input = styled.input`
 `;
 
 export const Button = styled.button`
-  display: flex;
+  display: inline-flex;
   align-items: center;
+  justify-content: center;
   width: 50px;
   height: 41.83px;
   background: whitesmoke;
   border-radius: 0 20px 20px 0;
-  /* padding: 10px 20px; */
   border: 1px solid rgb(178, 178, 178);
   border-left: 0;
   cursor: pointer;
@@ -38,6 +45,5 @@ export const Button = styled.button`
 export const Icon = styled(HiSearch)`
   width: 20px;
   height: 20px;
-  position: absolute;
   right: 6px;
 `;

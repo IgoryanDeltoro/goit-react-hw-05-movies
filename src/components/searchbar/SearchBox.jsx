@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types';
 import { useState } from 'react';
-import { Button, Icon, Input, Wrapper } from './SearchBox.styled';
+import { Button, Icon, Input, Wrapper, Form } from './SearchBox.styled';
 
 const SearchBox = ({ onSubmit }) => {
   const [search, setSearch] = useState('');
@@ -22,7 +22,7 @@ const SearchBox = ({ onSubmit }) => {
 
   return (
     <Wrapper>
-      <form onSubmit={hendleOnSubmit}>
+      <Form onSubmit={hendleOnSubmit}>
         <Input
           id="btn"
           type="text"
@@ -35,7 +35,7 @@ const SearchBox = ({ onSubmit }) => {
         <Button type="submit">
           <Icon />
         </Button>
-      </form>
+      </Form>
     </Wrapper>
   );
 };

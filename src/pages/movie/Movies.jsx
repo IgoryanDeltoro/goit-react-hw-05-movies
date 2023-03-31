@@ -1,9 +1,18 @@
 import axios from 'axios';
 import { useEffect, useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import SearchBox from '../components/searchbar/SearchBox.jsx';
+import SearchBox from '../../components/searchbar/SearchBox.jsx';
 
 import { useSearchParams } from 'react-router-dom';
+import {
+  Image,
+  MovieItem,
+  MovieList,
+  Title,
+  TitleBox,
+} from './Movie.styled.js';
+
+const IMAGE_ENDPOINT = 'https://image.tmdb.org/t/p/w500';
 
 const Movies = () => {
   const [results, setResults] = useState([]);
@@ -34,19 +43,25 @@ const Movies = () => {
   return (
     <>
       <SearchBox onSubmit={hendleOnSubmit} />
-      <div>
-        <ul>
-          {results.map(({ id, name, title }) => (
-            <li key={id}>
-              <Link state={{ from: Location }} to={`${id}`}>
-                {name ?? title}
-              </Link>
-            </li>
-          ))}
-        </ul>
-      </div>
+      <MovieList>
+        {results.map(({ id, name, title, backdrop_path }) => (
+          <MovieItem key={id}>
+            <Link state={{ from: Location }} to={`${id}`}>
+              <Image
+                src={`${IMAGE_ENDPOINT}${backdrop_path}`}
+                alt="poster_image"
+              />
+              <TitleBox>
+                <Title>{name ?? title}</Title>
+              </TitleBox>
+            </Link>
+          </MovieItem>
+        ))}
+      </MovieList>
     </>
   );
 };
 
 export default Movies;
+
+//
