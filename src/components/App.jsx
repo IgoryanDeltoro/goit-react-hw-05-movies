@@ -3,7 +3,7 @@ import { lazy } from 'react';
 
 import SharedLayout from './sharedLayout/SharedLayout';
 
-const Home = lazy(() => import('pages/Home'));
+const Home = lazy(() => import('pages/home/Home'));
 const Movies = lazy(() => import('pages/Movies'));
 const MovieDetails = lazy(() => import('pages/MovieDetails'));
 const Cast = lazy(() => import('./Cast'));

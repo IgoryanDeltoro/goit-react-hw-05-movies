@@ -1,6 +1,9 @@
 import axios from 'axios';
 import { useEffect, useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
+import { Image, MovieItem, MovieList, Title, TitleBox } from './Home.styled';
+
+const IMAGE_ENDPOINT = 'https://image.tmdb.org/t/p/w500';
 
 const Home = () => {
   const [movies, setMovies] = useState([]);
@@ -22,15 +25,21 @@ const Home = () => {
   };
 
   return (
-    <ul>
-      {movies.map(({ id, title }) => (
-        <li key={id}>
+    <MovieList>
+      {movies.map(({ id, title, backdrop_path }) => (
+        <MovieItem key={id}>
           <Link state={{ from: Location }} to={`movies/${id}`}>
-            {title}
+            <Image
+              src={`${IMAGE_ENDPOINT}${backdrop_path}`}
+              alt="poster_image"
+            />
+            <TitleBox>
+              <Title>{title}</Title>
+            </TitleBox>
           </Link>
-        </li>
+        </MovieItem>
       ))}
-    </ul>
+    </MovieList>
   );
 };
 

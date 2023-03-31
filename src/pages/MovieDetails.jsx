@@ -10,8 +10,7 @@ const MovieDetails = () => {
   const [details, setDetails] = useState({});
   const location = useLocation();
   const backLinkRef = useRef(location.state?.from ?? '/movies');
-  console.log(location);
-  console.log(backLinkRef);
+
   useEffect(() => {
     axiosRequest();
     // eslint-disable-next-line react-hooks/exhaustive-deps
