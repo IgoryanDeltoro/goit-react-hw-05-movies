@@ -5,7 +5,7 @@ import SharedLayout from './sharedLayout/SharedLayout';
 
 const Home = lazy(() => import('pages/home/Home'));
 const Movies = lazy(() => import('pages/movie/Movies'));
-const MovieDetails = lazy(() => import('pages/MovieDetails'));
+const MovieDetails = lazy(() => import('pages/movieDetails/MovieDetails'));
 const Cast = lazy(() => import('./Cast'));
 const Reviews = lazy(() => import('./Reviews'));
 

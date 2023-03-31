@@ -27,6 +27,9 @@ export const Input = styled.input`
   border-right: 0;
   float: left;
   outline: none;
+  &:focus {
+    width: 400px;
+  }
 `;
 
 export const Button = styled.button`
