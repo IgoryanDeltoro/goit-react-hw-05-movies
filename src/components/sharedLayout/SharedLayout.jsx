@@ -4,7 +4,7 @@ import { Container, Header, Logo, Link, Loading } from './SharedLayout.styled';
 
 const SharedLayout = () => {
   return (
-    <Container>
+    <>
       <Header>
         <Logo />
         <nav>
@@ -12,10 +12,12 @@ const SharedLayout = () => {
           <Link to="movies">Movies</Link>
         </nav>
       </Header>
-      <Suspense fallback={<Loading>Loading page...</Loading>}>
-        <Outlet />
-      </Suspense>
-    </Container>
+      <Container>
+        <Suspense fallback={<Loading>Loading page...</Loading>}>
+          <Outlet />
+        </Suspense>
+      </Container>
+    </>
   );
 };
 
