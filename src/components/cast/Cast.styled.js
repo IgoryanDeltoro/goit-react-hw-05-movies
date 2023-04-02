@@ -7,7 +7,7 @@ import styled from 'styled-components';
 
 export const CastItem = styled.li`
   display: block;
-  width: 100%;
+  width: 100px;
 `;
 
 export const CastTitle = styled.h3`
