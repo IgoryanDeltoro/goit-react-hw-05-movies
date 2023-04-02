@@ -34,8 +34,8 @@ const Cast = () => {
     // autoplay: false,
     transitionDuration: 500,
 
-    slidesToScroll: 8,
-    slidesToShow: 8,
+    slidesToScroll: 7,
+    slidesToShow: 7,
     indicators: true,
   };
   return (
