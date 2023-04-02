@@ -45,7 +45,7 @@ const Cast = () => {
           {profile_path !== null ? (
             <img src={IMAGE_ENDPOINT + profile_path} alt="portret" />
           ) : (
-            <img src="../icon/avatar.webp" />
+            <img src="../icon/pngwing.png" />
           )}
           <CastTitle>{name}</CastTitle>
           <p>Character: {character}</p>
