@@ -1,6 +1,10 @@
+/* eslint-disable jsx-a11y/alt-text */
 import axios from 'axios';
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
+import { CastItem, CastTitle } from './Cast.styled';
+import { Slide } from 'react-slideshow-image';
+import 'react-slideshow-image/dist/styles.css';
 
 const IMAGE_ENDPOINT = 'https://image.tmdb.org/t/p/w500';
 
@@ -26,24 +30,19 @@ const Cast = () => {
   };
 
   return (
-    <ul>
+    <Slide slidesToScroll={7} slidesToShow={7} indicators={true}>
       {cast.map(({ id, profile_path, name, character }) => (
-        <li key={id}>
+        <CastItem key={id}>
           {profile_path !== null ? (
-            <img
-              src={IMAGE_ENDPOINT + profile_path}
-              alt="portret"
-              width="100"
-            />
+            <img src={IMAGE_ENDPOINT + profile_path} alt="portret" />
           ) : (
-            // eslint-disable-next-line jsx-a11y/alt-text
-            <img src="http://dummyimage.com/100X150/99cccc.jpg&text=No+image!" />
+            <img src="http://dummyimage.com/100X150/99cccc.jpg&text=Actor" />
           )}
-          <h2>{name}</h2>
-          <span>Character: {character}</span>
-        </li>
+          <CastTitle>{name}</CastTitle>
+          <p>Character: {character}</p>
+        </CastItem>
       ))}
-    </ul>
+    </Slide>
   );
 };
 

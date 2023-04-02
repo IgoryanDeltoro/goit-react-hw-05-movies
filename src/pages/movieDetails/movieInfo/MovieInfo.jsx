@@ -2,7 +2,6 @@ import {
   DetailsBox,
   Image,
   ImageBox,
-  InfoBox,
   TD,
   Td,
   TitleInfo,
@@ -27,7 +26,7 @@ const MovieInfo = ({
   const fixedNum = vote_average && Number(vote_average.toFixed(1));
   return (
     <DetailsBox>
-      <InfoBox>
+      <div>
         <TitleInfo>{original_title}</TitleInfo>
         <table>
           <tbody>
@@ -74,7 +73,7 @@ const MovieInfo = ({
             </tr>
           </tbody>
         </table>
-      </InfoBox>
+      </div>
       <ImageBox>
         {pending && (
           <Image src={IMAGE_ENDPOINT + poster_path} alt="poster_image" />

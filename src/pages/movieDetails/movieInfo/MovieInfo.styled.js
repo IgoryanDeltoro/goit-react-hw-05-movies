@@ -5,8 +5,6 @@ export const DetailsBox = styled.div`
   display: flex;
   flex-direction: row-reverse;
 `;
-
-export const InfoBox = styled.div``;
 export const ImageBox = styled.div`
   margin-right: 20px;
 `;

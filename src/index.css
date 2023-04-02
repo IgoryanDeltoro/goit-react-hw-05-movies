@@ -19,6 +19,7 @@ img {
   max-width: 100%;
   height: auto;
 }
+
 h1,
 h2,
 h3,
@@ -29,7 +30,8 @@ ul,
 li,
 p,
 li,
-a {
+a,
+span {
   text-decoration: none;
   list-style: none;
   margin: 0;
