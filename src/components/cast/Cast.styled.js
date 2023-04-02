@@ -1,8 +1,13 @@
 import styled from 'styled-components';
+// import { Slide } from 'react-slideshow-image';
+
+// export const CastList = styled(Slide)`
+//   margin-right: 10px;
+// `;
 
 export const CastItem = styled.li`
   display: block;
-  width: 120px;
+  width: 100%;
 `;
 
 export const CastTitle = styled.h3`
