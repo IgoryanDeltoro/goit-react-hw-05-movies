@@ -29,14 +29,23 @@ const Cast = () => {
     }
   };
 
+  const properties = {
+    duration: 5000,
+    // autoplay: false,
+    transitionDuration: 500,
+
+    slidesToScroll: 8,
+    slidesToShow: 8,
+    indicators: true,
+  };
   return (
-    <Slide slidesToScroll={7} slidesToShow={7} indicators={true}>
+    <Slide {...properties}>
       {cast.map(({ id, profile_path, name, character }) => (
         <CastItem key={id}>
           {profile_path !== null ? (
             <img src={IMAGE_ENDPOINT + profile_path} alt="portret" />
           ) : (
-            <img src="http://dummyimage.com/100X150/99cccc.jpg&text=Actor" />
+            <img src="../icon/avatar.webp" />
           )}
           <CastTitle>{name}</CastTitle>
           <p>Character: {character}</p>
