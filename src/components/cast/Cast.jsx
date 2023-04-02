@@ -30,7 +30,7 @@ const Cast = () => {
   };
 
   return (
-    <Slide slidesToScroll={9} slidesToShow={9} indicators={true}>
+    <Slide slidesToScroll={7} slidesToShow={7} indicators={true}>
       {cast.map(({ id, profile_path, name, character }) => (
         <CastItem key={id}>
           {profile_path !== null ? (
