@@ -1,7 +1,7 @@
-import axios from 'axios';
 import { useEffect, useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { Image, MovieItem, MovieList, Title, TitleBox } from './Home.styled';
+import { trendingMoviesRequest } from 'service/axiosApiRequest';
 
 const IMAGE_ENDPOINT = 'https://image.tmdb.org/t/p/w500';
 
@@ -9,18 +9,12 @@ const Home = () => {
   const [movies, setMovies] = useState([]);
   const Location = useLocation();
   useEffect(() => {
-    axiosRequest();
+    hendleTrendingRequest();
   }, []);
 
-  const axiosRequest = async () => {
-    try {
-      const response = await axios.get(
-        `https://api.themoviedb.org/3/trending/movie/day?api_key=b8cc7192580846817e308e88dc3da3b8`
-      );
-      setMovies(response.data.results);
-    } catch (error) {
-      console.error(error);
-    }
+  const hendleTrendingRequest = async () => {
+    const response = await trendingMoviesRequest();
+    setMovies(response);
   };
 
   return (

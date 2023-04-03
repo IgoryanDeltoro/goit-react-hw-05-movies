@@ -15,6 +15,7 @@ export const MovieList = styled.ul`
 
 export const MovieItem = styled.li`
   &:hover {
+    color: #1d1e1f;
     text-decoration: underline;
   }
 `;
@@ -31,5 +32,5 @@ export const TitleBox = styled.div`
 `;
 
 export const Title = styled.h3`
-  color: #686e70;
+  color: #1d1e1f;
 `;

@@ -1,6 +1,6 @@
-import axios from 'axios';
 import { lazy, useEffect, useRef, useState } from 'react';
 import { Outlet, useLocation, useParams } from 'react-router-dom';
+import { movieDetailsRequest } from 'service/axiosApiRequest';
 import { Back, Link } from '../../components/movieInfo/MovieInfo.styled';
 import { InfoError } from './MovieDetails.styled';
 const MovieInfo = lazy(() => import('../../components/movieInfo/MovieInfo'));
@@ -19,16 +19,8 @@ const MovieDetails = () => {
 
   const axiosRequest = async () => {
     setPending(false);
-    try {
-      const response = await axios.get(
-        `https://api.themoviedb.org/3/movie/${movieId}?api_key=b8cc7192580846817e308e88dc3da3b8&language=en-US`
-      );
-      setDetails(response.data);
-    } catch (error) {
-      console.error(error);
-    } finally {
-      setPending(true);
-    }
+    const response = await movieDetailsRequest(movieId, setPending);
+    setDetails(response);
   };
 
   return (

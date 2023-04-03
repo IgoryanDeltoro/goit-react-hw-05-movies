@@ -22,7 +22,6 @@ const MovieInfo = ({
     poster_path,
   },
 }) => {
-  console.log(vote_average);
   const fixedNum = vote_average && Number(vote_average.toFixed(1));
   return (
     <DetailsBox>

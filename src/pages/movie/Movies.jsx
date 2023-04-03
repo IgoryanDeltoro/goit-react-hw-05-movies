@@ -1,9 +1,8 @@
-import axios from 'axios';
 import { useEffect, useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import SearchBox from '../../components/searchbar/SearchBox.jsx';
-
 import { useSearchParams } from 'react-router-dom';
+import { searchMoviesRequest } from 'service/axiosApiRequest.js';
 import {
   Image,
   MovieItem,
@@ -26,14 +25,8 @@ const Movies = () => {
   }, [productName]);
 
   const axiosRequest = async () => {
-    try {
-      const response = await axios.get(
-        `https://api.themoviedb.org/3/search/multi?api_key=b8cc7192580846817e308e88dc3da3b8&language=en-US&query=${productName}&page=1&include_adult=false`
-      );
-      setResults(response.data.results);
-    } catch (error) {
-      console.error(error);
-    }
+    const response = await searchMoviesRequest(productName);
+    setResults(response);
   };
   const hendleOnSubmit = prop => {
     setSearchParams({ query: `${prop}` });
@@ -67,5 +60,3 @@ const Movies = () => {
 };
 
 export default Movies;
-
-//

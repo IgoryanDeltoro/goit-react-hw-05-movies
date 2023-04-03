@@ -1,6 +1,6 @@
-import axios from 'axios';
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
+import { reviewsRequest } from 'service/axiosApiRequest';
 import {
   ReviewsBox,
   ReviewsTitle,
@@ -18,15 +18,8 @@ const Reviews = () => {
   }, []);
 
   const axiosRequest = async () => {
-    try {
-      const response = await axios.get(
-        `https://api.themoviedb.org/3/movie/${movieId}/reviews?api_key=b8cc7192580846817e308e88dc3da3b8&language=en-US`
-      );
-      console.log(response);
-      setReviews(response.data.results);
-    } catch (error) {
-      console.error(error);
-    }
+    const response = await reviewsRequest(movieId);
+    setReviews(response);
   };
 
   return (
