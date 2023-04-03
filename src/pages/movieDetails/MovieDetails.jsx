@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { lazy, Suspense, useEffect, useRef, useState } from 'react';
+import { lazy, useEffect, useRef, useState } from 'react';
 import { Outlet, useLocation, useParams } from 'react-router-dom';
 import { Back, Link } from '../../components/movieInfo/MovieInfo.styled';
 import { InfoError } from './MovieDetails.styled';
