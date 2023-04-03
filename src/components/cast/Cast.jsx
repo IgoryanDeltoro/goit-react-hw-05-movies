@@ -2,7 +2,7 @@
 import axios from 'axios';
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
-import { CastItem, CastTitle } from './Cast.styled';
+import { CastImg, CastItem, CastList, CastTitle, ImgBox } from './Cast.styled';
 import { Slide } from 'react-slideshow-image';
 import 'react-slideshow-image/dist/styles.css';
 
@@ -29,29 +29,20 @@ const Cast = () => {
     }
   };
 
-  const properties = {
-    duration: 5000,
-    // autoplay: false,
-    transitionDuration: 500,
-
-    slidesToScroll: 7,
-    slidesToShow: 7,
-    indicators: true,
-  };
   return (
-    <Slide {...properties}>
+    <CastList>
       {cast.map(({ id, profile_path, name, character }) => (
         <CastItem key={id}>
           {profile_path !== null ? (
             <img src={IMAGE_ENDPOINT + profile_path} alt="portret" />
           ) : (
-            <img src="../icon/pngwing.png" />
+            <img src={require('../icon/NoImg.jpg')} />
           )}
           <CastTitle>{name}</CastTitle>
           <p>Character: {character}</p>
         </CastItem>
       ))}
-    </Slide>
+    </CastList>
   );
 };
 

@@ -1,6 +1,12 @@
 import axios from 'axios';
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
+import {
+  ReviewsBox,
+  ReviewsTitle,
+  RewiewsDescr,
+  RewiewsSpan,
+} from './Rewiews.styled';
 
 const Reviews = () => {
   const { movieId } = useParams();
@@ -24,21 +30,23 @@ const Reviews = () => {
   };
 
   return (
-    <div>
+    <ReviewsBox>
       {reviews.length !== 0 ? (
         <>
           {reviews.map(el => (
             <div key={el.id}>
-              <h2>Author: {el.author}</h2>
-              <h3>Content:</h3>
-              <p>{el.content}</p>
+              <ReviewsTitle>Author: {el.author}</ReviewsTitle>
+              <RewiewsDescr>
+                <RewiewsSpan>Content: </RewiewsSpan>
+                {el.content}
+              </RewiewsDescr>
             </div>
           ))}
         </>
       ) : (
         <h3>We don't have any reviews for this movie.</h3>
       )}
-    </div>
+    </ReviewsBox>
   );
 };
 

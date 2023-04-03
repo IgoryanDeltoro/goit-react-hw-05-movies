@@ -24,7 +24,6 @@ const SearchBox = ({ onSubmit }) => {
     <Wrapper>
       <Form onSubmit={hendleOnSubmit}>
         <Input
-          id="btn"
           type="text"
           autoComplete="off"
           autoFocus

@@ -17,7 +17,7 @@ export const Form = styled.form`
 `;
 
 export const Input = styled.input`
-  width: 300px;
+  width: 400px;
   height: 40px;
   border-radius: 20px 0 0 20px;
   background: whitesmoke;
@@ -27,9 +27,6 @@ export const Input = styled.input`
   border-right: 0;
   float: left;
   outline: none;
-  &:focus {
-    width: 400px;
-  }
 `;
 
 export const Button = styled.button`

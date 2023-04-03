@@ -25,13 +25,16 @@ const Home = () => {
 
   return (
     <MovieList>
-      {movies.map(({ id, title, backdrop_path }) => (
+      {movies.map(({ id, title, backdrop_path, profile_path }) => (
         <MovieItem key={id}>
           <Link state={{ from: Location }} to={`movies/${id}`}>
-            <Image
-              src={`${IMAGE_ENDPOINT}${backdrop_path}`}
-              alt="poster_image"
-            />
+            {profile_path !== null ? (
+              <Image src={`${IMAGE_ENDPOINT}${backdrop_path}`} alt="portret" />
+            ) : (
+              // eslint-disable-next-line jsx-a11y/alt-text
+              <Image src={require('../../components/icon/NoImg.jpg')} />
+            )}
+
             <TitleBox>
               <Title>{title}</Title>
             </TitleBox>

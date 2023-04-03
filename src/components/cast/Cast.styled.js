@@ -1,9 +1,11 @@
 import styled from 'styled-components';
-// import { Slide } from 'react-slideshow-image';
 
-// export const CastList = styled(Slide)`
-//   margin-right: 10px;
-// `;
+export const CastList = styled.ul`
+  display: grid;
+  max-width: calc(100vw - 48px);
+  grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+  grid-gap: 16px;
+`;
 
 export const CastItem = styled.li`
   display: block;
