@@ -2,8 +2,7 @@
 import axios from 'axios';
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
-import { CastImg, CastItem, CastList, CastTitle, ImgBox } from './Cast.styled';
-import { Slide } from 'react-slideshow-image';
+import { CastItem, CastList, CastTitle } from './Cast.styled';
 import 'react-slideshow-image/dist/styles.css';
 
 const IMAGE_ENDPOINT = 'https://image.tmdb.org/t/p/w500';
