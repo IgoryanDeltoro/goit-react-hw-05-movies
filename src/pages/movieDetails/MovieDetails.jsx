@@ -30,7 +30,7 @@ const MovieDetails = () => {
 
   return (
     <>
-      <Back to={backLinkRef.current}>Back</Back>
+      <Back to={backLinkRef.current}>Go back</Back>
       {details.length !== 0 ? (
         <>
           <MovieInfo details={details} pending={pending} />
