@@ -23,7 +23,7 @@ const searchMoviesRequest = async productName => {
     console.error(error);
   }
 };
-const movieDetailsRequest = async movieId => {
+const movieDetailsRequest = async (movieId, setPending) => {
   try {
     const response = await axios.get(
       `${BASE_URL}/3/movie/${movieId}?api_key=${KEY_REQUES}&language=en-US`
@@ -31,6 +31,8 @@ const movieDetailsRequest = async movieId => {
     return response.data;
   } catch (error) {
     console.error(error);
+  } finally {
+    // setPending(false);
   }
 };
 const castRequest = async movieId => {
