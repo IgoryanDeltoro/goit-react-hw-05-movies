@@ -10,7 +10,6 @@ import {
 const IMAGE_ENDPOINT = 'https://image.tmdb.org/t/p/w500';
 
 const MovieInfo = ({
-  pending,
   details: {
     original_title,
     vote_average,
@@ -42,10 +41,9 @@ const MovieInfo = ({
                 <h2>Genres:</h2>
               </Td>
               <TD>
-                {pending &&
-                  genres.map(({ name }, idx, arr) => {
-                    return idx < arr.length - 1 ? name + ', ' : name;
-                  })}
+                {genres.map(({ name }, idx, arr) => {
+                  return idx < arr.length - 1 ? name + ', ' : name;
+                })}
               </TD>
             </tr>
             <tr>
@@ -74,9 +72,7 @@ const MovieInfo = ({
         </table>
       </div>
       <ImageBox>
-        {pending && (
-          <Image src={IMAGE_ENDPOINT + poster_path} alt="poster_image" />
-        )}
+        <Image src={IMAGE_ENDPOINT + poster_path} alt="poster_image" />
       </ImageBox>
     </DetailsBox>
   );

@@ -7,7 +7,6 @@ const MovieInfo = lazy(() => import('../../components/movieInfo/MovieInfo'));
 
 const MovieDetails = () => {
   const { movieId } = useParams();
-  const [pending, setPending] = useState(false);
   const [details, setDetails] = useState([]);
   const location = useLocation();
   const backLinkRef = useRef(location.state?.from ?? '/movies');
@@ -18,10 +17,10 @@ const MovieDetails = () => {
   }, []);
 
   const axiosRequest = async () => {
-    setPending(true);
-    const response = await movieDetailsRequest(movieId, setPending);
+    const response = await movieDetailsRequest(movieId);
     if (response !== undefined) {
       setDetails(response);
+      return;
     }
     setDetails([]);
   };
@@ -29,10 +28,9 @@ const MovieDetails = () => {
   return (
     <>
       <Back to={backLinkRef.current}>Back</Back>
-
       {details.length !== 0 ? (
         <>
-          <MovieInfo details={details} pending={pending} />
+          <MovieInfo details={details} />
           <Link to="cast">Cast</Link>
           <Link to="reviews">Reviews</Link>
           <Outlet />
