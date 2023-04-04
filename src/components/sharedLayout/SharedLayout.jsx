@@ -1,5 +1,6 @@
 import { Suspense } from 'react';
 import { Outlet } from 'react-router-dom';
+import { ToastContainer } from 'react-toastify';
 import {
   Container,
   Header,
@@ -23,6 +24,7 @@ const SharedLayout = () => {
       </Header>
       <Container>
         <Suspense fallback={<Loading>Loading page...</Loading>}>
+          <ToastContainer />
           <Outlet />
         </Suspense>
       </Container>

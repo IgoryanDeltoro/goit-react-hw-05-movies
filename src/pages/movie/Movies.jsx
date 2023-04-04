@@ -3,6 +3,8 @@ import { Link, useLocation } from 'react-router-dom';
 import SearchBox from '../../components/searchbar/SearchBox.jsx';
 import { useSearchParams } from 'react-router-dom';
 import { searchMoviesRequest } from 'service/axiosApiRequest.js';
+import { toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 import {
   Image,
   MovieItem,
@@ -27,6 +29,9 @@ const Movies = () => {
   const axiosRequest = async () => {
     const response = await searchMoviesRequest(productName);
     setResults(response);
+    if (productName !== '' && response.length === 0) {
+      toast('Sorry, nothing was found for your request!');
+    }
   };
   const hendleOnSubmit = prop => {
     setSearchParams({ query: `${prop}` });
@@ -36,12 +41,12 @@ const Movies = () => {
     <>
       <SearchBox onSubmit={hendleOnSubmit} />
       <MovieList>
-        {results.map(({ id, name, title, backdrop_path, profile_path }) => (
+        {results.map(({ id, name, title, backdrop_path, poster_path }) => (
           <MovieItem key={id}>
             <Link state={{ from: Location }} to={`${id}`}>
-              {backdrop_path && profile_path !== null ? (
+              {backdrop_path && poster_path !== null ? (
                 <Image
-                  src={`${IMAGE_ENDPOINT}${backdrop_path}`}
+                  src={`${IMAGE_ENDPOINT}${poster_path ?? backdrop_path}`}
                   alt="portret"
                 />
               ) : (
