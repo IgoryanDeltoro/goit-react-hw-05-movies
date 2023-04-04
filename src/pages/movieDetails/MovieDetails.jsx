@@ -18,27 +18,27 @@ const MovieDetails = () => {
   }, []);
 
   const axiosRequest = async () => {
-    setPending(false);
+    setPending(true);
     const response = await movieDetailsRequest(movieId, setPending);
-    setDetails(response);
+    if (response !== undefined) {
+      setDetails(response);
+    }
+    setDetails([]);
   };
-
+  console.log(details);
   return (
     <>
       <Back to={backLinkRef.current}>Back</Back>
-      {pending && (
+
+      {details.length !== 0 ? (
         <>
-          {details.length !== 0 ? (
-            <>
-              <MovieInfo details={details} pending={pending} />
-              <Link to="cast">Cast</Link>
-              <Link to="reviews">Reviews</Link>
-              <Outlet />
-            </>
-          ) : (
-            <InfoError>There is no information about movies!</InfoError>
-          )}
+          <MovieInfo details={details} pending={pending} />
+          <Link to="cast">Cast</Link>
+          <Link to="reviews">Reviews</Link>
+          <Outlet />
         </>
+      ) : (
+        <InfoError>There is no information about this movie!</InfoError>
       )}
     </>
   );

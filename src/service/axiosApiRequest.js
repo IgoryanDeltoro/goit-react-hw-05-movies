@@ -32,7 +32,7 @@ const movieDetailsRequest = async (movieId, setPending) => {
   } catch (error) {
     console.error(error);
   } finally {
-    setPending(true);
+    setPending(false);
   }
 };
 const castRequest = async movieId => {
